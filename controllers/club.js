@@ -3,7 +3,6 @@ const mongodb = require('../db/database');
 const ObjectId = require('mongodb').ObjectId;
 const { validationResult } = require('express-validator');
 
-//handling erros
 
 const getAll = async (req, res) => {
     try {
