@@ -23,4 +23,20 @@ const validatePlayerId = [
         .isMongoId().withMessage('Invalid player ID'),
 ];
 
-module.exports = { validatePlayer, validatePlayerId };
+const validateClub = [
+    body('name')
+        .notEmpty().withMessage('Name is required')
+        .isString().withMessage('Name must be a string'),
+
+    body('date')
+        .notEmpty().withMessage('Position is required')
+        .isString().withMessage('Position must be a string'),
+];
+
+const validateClubId = [
+    param('id')
+        .isMongoId().withMessage('Invalid player ID'),
+];
+
+
+module.exports = { validatePlayer, validatePlayerId, validateClub, validateClubId };

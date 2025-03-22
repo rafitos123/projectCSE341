@@ -4,8 +4,8 @@ const swaggerAutoGen = require('swagger-autogen')();
 
 const doc = {
     info: {
-        title: 'players Api',
-        description: 'players Api',
+        title: 'players and Clubs Api',
+        description: 'API to manage players and clubs',
     },
 
     host: 'localhost:3000',

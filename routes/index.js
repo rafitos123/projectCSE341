@@ -9,5 +9,6 @@ router.get('/', (req, res) => {
 
 
 router.use('/soccer', require('./soccer'));
+router.use('/club', require('./club'));
 
 module.exports = router;
