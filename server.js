@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongodb = require('./db/database');
@@ -22,7 +23,7 @@ mongodb.initDb((err) => {
     if (err) {
         console.log(err);
     } else {
-        app.listen(port, () => {console.log(`Databse is listening and node is running on port ${port}`);});
+        app.listen(port, () => {console.log(`Database is listening and node is running on port ${port}`);});
     }
 });
 

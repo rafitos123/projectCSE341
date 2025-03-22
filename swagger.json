@@ -1,13 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "users Api",
-    "description": "users Api",
+    "title": "players Api",
+    "description": "players Api",
     "version": "1.0.0"
   },
-  "host": "project1-zrkv.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
@@ -21,7 +22,17 @@
         }
       }
     },
-    "/users/": {
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/soccer/": {
       "get": {
         "description": "",
         "produces": [
@@ -30,6 +41,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -42,19 +56,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "Name": {
                   "example": "any"
                 },
-                "lastName": {
+                "Position": {
                   "example": "any"
                 },
-                "email": {
+                "Club": {
                   "example": "any"
                 },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
+                "height": {
                   "example": "any"
                 }
               }
@@ -71,7 +82,7 @@
         }
       }
     },
-    "/users/{id}": {
+    "/soccer/{id}": {
       "get": {
         "description": "",
         "produces": [
@@ -106,19 +117,16 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "Name": {
                   "example": "any"
                 },
-                "lastName": {
+                "Position": {
                   "example": "any"
                 },
-                "email": {
+                "Club": {
                   "example": "any"
                 },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
+                "height": {
                   "example": "any"
                 }
               }
