@@ -5,7 +5,7 @@
     "description": "API to manage players and clubs",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "project2-j9uh.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
