@@ -7,7 +7,6 @@ const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
-const MongoStore = require('connect-mongo');
 
 const port = process.env.PORT || 3000;
 
@@ -18,10 +17,6 @@ app
         secret: "secret",
         resave: false,
         saveUninitialized: true,
-        store: MongoStore.create({
-            mongoUrl: process.env.MONGO_URI, // URL do MongoDB
-            collectionName: 'sessions'
-        })
     }))
     .use(passport.initialize())
     .use(passport.session())
