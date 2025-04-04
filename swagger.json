@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "players and Clubs Api",
-    "description": "API to manage players and clubs",
+    "title": "Feedback Api",
+    "description": "API to manage users reviews",
     "version": "1.0.0"
   },
   "host": "feedback-4i2y.onrender.com",
