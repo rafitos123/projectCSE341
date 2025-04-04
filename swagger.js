@@ -4,11 +4,11 @@ const swaggerAutoGen = require('swagger-autogen')();
 
 const doc = {
     info: {
-        title: 'players and Clubs Api',
-        description: 'API to manage players and clubs',
+        title: 'Feedback API',
+        description: 'API to manage users reviews.',
     },
 
-    host: 'localhost:3000',
+    host: 'localhost:3002',
     schemes: ['http', 'https'],
 }
 
