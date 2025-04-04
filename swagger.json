@@ -1,22 +1,33 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Feedback Api",
-    "description": "API to manage users reviews",
+    "title": "Feedback API",
+    "description": "API to manage users reviews.",
     "version": "1.0.0"
   },
-  "host": "feedback-4i2y.onrender.com",
+  "host": "localhost:3002",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
-    "/": {
+    "/login": {
       "get": {
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
@@ -31,152 +42,7 @@
         }
       }
     },
-    "/soccer/": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "Name": {
-                  "example": "any"
-                },
-                "Position": {
-                  "example": "any"
-                },
-                "Club": {
-                  "example": "any"
-                },
-                "height": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/soccer/{id}": {
-      "get": {
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "Name": {
-                  "example": "any"
-                },
-                "Position": {
-                  "example": "any"
-                },
-                "Club": {
-                  "example": "any"
-                },
-                "height": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/club/": {
+    "/products/": {
       "get": {
         "description": "",
         "produces": [
@@ -203,7 +69,13 @@
                 "name": {
                   "example": "any"
                 },
-                "date": {
+                "category": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                },
+                "average_rating": {
                   "example": "any"
                 }
               }
@@ -217,13 +89,16 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
     },
-    "/club/{id}": {
+    "/products/{id}": {
       "get": {
         "description": "",
         "produces": [
@@ -264,7 +139,13 @@
                 "name": {
                   "example": "any"
                 },
-                "date": {
+                "category": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                },
+                "average_rating": {
                   "example": "any"
                 }
               }
@@ -277,6 +158,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -299,6 +183,157 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
