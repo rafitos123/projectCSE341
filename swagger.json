@@ -8,7 +8,6 @@
   "host": "feedback-4i2y.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
