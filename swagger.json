@@ -5,7 +5,7 @@
     "description": "API to manage players and clubs",
     "version": "1.0.0"
   },
-  "host": "project2-f5sb.onrender.com",
+  "host": "feedback-4i2y.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
