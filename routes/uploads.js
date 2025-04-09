@@ -1,5 +1,5 @@
 const express = require('express');
-const { upload } = require('./db/database');
+const { upload } = require('../db/database');
 const { uploadFile } = require('../controllers/uploads');
 const router = express.Router();
 

@@ -43,5 +43,9 @@ const storage = new GridFsStorage({
   
   const upload = multer({ storage });
   
-  module.exports = { connectDB, upload, dbClient: client, initDb, getDatabase, };
 
+  module.exports = {
+    initDb,
+    getDatabase,
+    upload,
+  };
