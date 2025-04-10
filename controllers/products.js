@@ -47,7 +47,7 @@ const createProduct = async (req, res) => {
             return res.status(201).json({ message: 'Product created successfully', productId: response.insertedId });
         }
     } catch (error) {
-        return res.status(500).json({ error: 'An error occurred while creating the player', details: error.message });
+        return res.status(500).json({ error: 'An error occurred while creating the product', details: error.message });
     }
 };
 

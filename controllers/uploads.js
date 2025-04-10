@@ -1,44 +1,39 @@
-const mongodb = require('../db/database');
-const ObjectId = require('mongodb').ObjectId;
+// controllers/uploads.js
+const { getDatabase } = require('../db/database');
 
-const uploadFile = async (req, res) => {
+const { ObjectId } = require('mongodb');
+
+const postUpload = async (req, res) => {
   try {
     if (!req.file) {
-      return res.status(400).json({ message: 'Nenhum arquivo enviado.' });
+      return res.status(400).json({ message: 'No files uploaded.' });
     }
 
-    
-
-    // Pegando dados do body (ou de req.user se estiver logado com passport)
-    const { reviewId, userId } = req.body;
+    const db = getDatabase();
 
     const metadata = {
-      reviewId: new ObjectId(reviewId),
-      userId: new ObjectId(userId),
+      userId: req.body.userId,
+      reviewId: req.body.reviewId,
       fileType: req.file.mimetype,
-      gridFsFileId: req.file.id,
-      uploadDate: new Date()
+      uploadDate: new Date(),
+      originalName: req.file.originalname,
+      size: req.file.size,
+      fileBuffer: req.file.buffer.toString('base64') // exemplo: você pode salvar como base64
     };
 
-     const response = await mongodb.getDatabase().collection('uploads').insertOne(metadata);
-    if (!response.acknowledged) {
-      return res.status(500).json({ message: 'Erro ao salvar os metadados do arquivo.' });
-    }
+    const result = await db.collection('uploads').insertOne(metadata);
 
-
-    res.status(200).json({
-      message: 'Arquivo enviado e metadados salvos com sucesso!',
+    res.status(201).json({
+      message: 'File sent and saved successfully!',
+      fileId: result.insertedId,
       fileMetadata: metadata
     });
   } catch (error) {
-    res.status(500).json({
-      message: 'Erro ao processar o upload.',
-      error: error.message
-    });
+    console.error(error);
+    res.status(500).json({ message: 'Internal error during upload.' });
   }
 };
 
 module.exports = {
-    uploadFile
-  };
-  
+  postUpload,
+};

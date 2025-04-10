@@ -44,5 +44,39 @@ const validateProductId = [
         .isMongoId().withMessage('Invalid player ID'),
 ];
 
+const validateReview = [
+    body('userId')
+        .notEmpty().withMessage('User ID is required')
+        .isMongoId().withMessage('Invalid user ID'),
 
-module.exports = { validateUser, validateUserId, validateProduct, validateProductId };
+    body('productId')
+        .notEmpty().withMessage('Product ID is required')
+        .isMongoId().withMessage('Invalid product ID'),
+
+    body('rating')
+        .notEmpty().withMessage('Rating is required')
+        .isNumeric().withMessage('Rating must be a number')
+        .isFloat({ min: 0, max: 5 }).withMessage('Rating must be between 0 and 5'),
+
+    body('comment')
+        .notEmpty().withMessage('Comment is required')
+        .isString().withMessage('Comment must be a string'),
+
+    body('verified')
+        .optional()
+        .isBoolean().withMessage('Verified must be a boolean'),
+    
+    body('verified_date')
+        .optional()
+        .isDate().withMessage('Verified date must be a valid date'),
+
+
+];
+
+const validateReviewId = [
+    param('id')
+        .isMongoId().withMessage('Invalid player ID'),
+];
+
+
+module.exports = { validateUser, validateUserId, validateReview, validateReviewId, validateProduct, validateProductId };

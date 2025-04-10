@@ -7,7 +7,6 @@ const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
-const fileRoutes = require('./routes/uploads');
 
 const port = process.env.PORT || 3002;
 
@@ -64,7 +63,6 @@ app.get('/github/callback', passport.authenticate('github', {
         res.redirect('/');
     });
 
-app.use('/api', fileRoutes);
 
 mongodb.initDb((err) => {
     if (err) {
