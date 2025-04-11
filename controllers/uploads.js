@@ -21,12 +21,14 @@ const postUpload = async (req, res) => {
       fileBuffer: req.file.buffer.toString('base64') // exemplo: você pode salvar como base64
     };
 
+    
     const result = await db.collection('uploads').insertOne(metadata);
+    const { fileBuffer, ...metadataWithoutBuffer } = metadata;
 
     res.status(201).json({
       message: 'File sent and saved successfully!',
       fileId: result.insertedId,
-      fileMetadata: metadata
+      fileMetadata: metadataWithoutBuffer
     });
   } catch (error) {
     console.error(error);
