@@ -34,13 +34,11 @@ beforeAll(async () => {
 });
 
 //close connection to database after all tests
-// and delete all reviews in the collection
-afterAll(async () => {
-    const db = mongodb.getDatabase();
-    await db.collection('reviews').deleteMany({}); 
-    await db.client.close();
-  });
 
+afterAll(async () => {
+  const db = mongodb.getDatabase();
+  await db.client.close();
+});
   // Test cases for the reviews API
 describe('reviews API', () => {
     test('Should return all reviews', async () => {

@@ -33,10 +33,9 @@ beforeAll(async () => {
 //close connection to database after all tests
 // and delete all products in the collection
 afterAll(async () => {
-    const db = mongodb.getDatabase();
-    await db.collection('products').deleteMany({}); 
-    await db.client.close();
-  });
+  const db = mongodb.getDatabase();
+  await db.client.close();
+});
 
   // Test cases for the products API
 describe('Products API', () => {

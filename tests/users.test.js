@@ -33,7 +33,6 @@ beforeAll(async () => {
 // and delete all users in the collection
 afterAll(async () => {
     const db = mongodb.getDatabase();
-    await db.collection('users').deleteMany({}); 
     await db.client.close();
   });
 
