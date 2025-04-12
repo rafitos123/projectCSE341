@@ -9,7 +9,7 @@ const doc = {
     },
 
     host: 'feedback-4i2y.onrender.com',
-    schemes: ['http', 'https'],
+    schemes: ['https']
 }
 
 const outputFile = './swagger.json';
