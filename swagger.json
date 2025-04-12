@@ -5,10 +5,9 @@
     "description": "API to manage users reviews.",
     "version": "1.0.0"
   },
-  "host": "localhost:3002",
+  "host": "feedback-4i2y.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
