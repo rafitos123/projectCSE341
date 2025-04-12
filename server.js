@@ -72,3 +72,4 @@ mongodb.initDb((err) => {
     }
 });
 
+module.exports = app; // Exportando o app Express para ser usado em outros arquivos, como os testes

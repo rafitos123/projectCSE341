@@ -8,8 +8,8 @@ const doc = {
         description: 'API to manage users reviews.',
     },
 
-    host: 'localhost:3002',
-    schemes: ['http', 'https'],
+    host: 'feedback-4i2y.onrender.com',
+    schemes: ['https'],
 }
 
 const outputFile = './swagger.json';
